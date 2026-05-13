@@ -32,6 +32,12 @@ export default function App() {
 
   useEffect(() => {
     load();
+  
+    const interval = setInterval(() => {
+      load();
+    }, 5000);
+  
+    return () => clearInterval(interval);
   }, []);
 
   const saveWish = async () => {
@@ -104,6 +110,33 @@ export default function App() {
             hidden: 'NO',
           },
         ];
+
+        const isDisplayMode = window.location.pathname === '/display';
+
+        if (isDisplayMode) {
+          return (
+            <div className="display-page">
+              <section className="display-wall">
+                <h1>🎁 Birthday Wall</h1>
+                <p>คำอวยพรจากเพื่อนร่วมงาน</p>
+        
+                <div className="display-grid">
+                  {displayWishes.map((w) => (
+                    <article className="display-card" key={w.id}>
+                      <span className="display-quote">“</span>
+                      <div>{w.message}</div>
+                      <strong>{w.dept || w.name}</strong>
+                      <span className="display-quote right">”</span>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            </div>
+          );
+        }
+
+
+
 
   return (
     <div className="page">
