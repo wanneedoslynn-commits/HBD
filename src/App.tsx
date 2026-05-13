@@ -125,7 +125,8 @@ export default function App() {
                     <article className="display-card" key={w.id}>
                       <span className="display-quote">“</span>
                       <div>{w.message}</div>
-                      <strong>{w.dept || w.name}</strong>
+                      <strong>{w.name}</strong>
+                      {w.dept && <small>{w.dept}</small>}
                       <span className="display-quote right">”</span>
                     </article>
                   ))}
@@ -206,7 +207,8 @@ export default function App() {
               <span className="quote left-quote">“</span>
               <div>{w.message}</div>
               <span className="quote right-quote">”</span>
-              <strong>{w.dept || w.name}</strong>
+              <strong>{w.name}</strong>
+              {w.dept && <small>{w.dept}</small>}
             </article>
           ))}
         </div>

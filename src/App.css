@@ -466,3 +466,12 @@ button {
     min-height: auto;
   }
 }
+
+.wish-card small,
+.display-card small {
+  display: block;
+  margin-top: 6px;
+  color: #16a34a;
+  font-size: 0.9em;
+  font-weight: 700;
+}
